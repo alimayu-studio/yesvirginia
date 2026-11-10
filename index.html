@@ -142,6 +142,11 @@ p{margin:0 0 1em}
 .thanks h2{font-size:clamp(38px,5vw,58px);color:var(--red);margin-bottom:14px}
 .thanks p{max-width:34em;margin:0 auto 1em}
 .thanks .hero__actions{justify-content:center;margin:26px 0 0}
+.more-magic{max-width:36em;margin:26px auto 0;padding:22px 26px;background:var(--paper);border:2px dashed var(--red);box-shadow:4px 5px 0 rgba(43,33,27,.1)}
+.more-magic h3{font-size:30px;color:var(--wine);margin-bottom:8px}
+.more-magic p{margin:0 auto .6em}
+.more-magic__note{font-size:15.5px;color:var(--muted)}
+.thanks__help{margin-top:26px!important;font-size:16px;color:var(--muted)}
 
 /* ---- Virginia's story: an animated storybook ---- */
 .story{display:grid;grid-template-columns:minmax(230px,.62fr) 2fr;gap:clamp(28px,4.5vw,60px);align-items:center}
@@ -478,12 +483,16 @@ footer p{margin:6px 0 0;color:#e3d8c6}
     <img src="assets/santa.webp" alt="" width="110" height="120">
     <h2 id="thanks-h">Thank you. Santa has your request.</h2>
     <p>Your payment went through. Santa’s letter will be prepared and mailed to the address you gave, inside a plain outer envelope addressed to you.</p>
-    <p>Questions about your order? Email <a class="textlink" href="mailto:hello@yesvirginia.club">hello@yesvirginia.club</a>.</p>
-    <p><strong>Want to send more Christmas magic?</strong> Every additional letter is $10. Sending to a different address? Place a separate order for each address so every letter reaches the right mailbox.</p>
+    <div class="more-magic">
+      <h3>Want to send more Christmas magic?</h3>
+      <p>Have another child, grandchild, friend, or family member who would love a letter from Santa? Order another letter for just $10.</p>
+      <p class="more-magic__note">Sending letters to different addresses? Place a separate order for each mailing address so every letter reaches the right mailbox.</p>
+    </div>
     <div class="hero__actions">
       <button class="btn" type="button" id="another">Order another letter</button>
       <a class="textlink" href="#top" id="thanks-close">Back to the top</a>
     </div>
+    <p class="thanks__help">Have a question about your Yes, Virginia! order? Email <a class="textlink" href="mailto:hello@yesvirginia.club">hello@yesvirginia.club</a>.</p>
   </div>
 </section>
 
