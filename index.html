@@ -319,6 +319,18 @@ p{margin:0 0 1em}
 .final h2{font-size:clamp(42px,5.4vw,66px);color:var(--red);margin:0 auto 14px;max-width:13em}
 .final p{max-width:30em;margin:0 auto 28px}
 
+
+/* candy canes */
+.cane{display:inline-block;width:30px;height:60px;flex:none}
+.cane--flip{transform:scaleX(-1)}
+.how .wrap{position:relative}
+.cane--how{position:absolute;right:5%;top:-22px;width:58px;height:116px;transform:rotate(14deg)}
+.cane--faq{width:22px;height:44px;vertical-align:-4px;margin:0 14px}
+.cane--faq.cane--flip{transform:scaleX(-1)}
+.canes{display:flex;justify-content:center;margin-bottom:10px}
+.canes .cane{width:34px;height:68px;margin:0 -7px;transform:rotate(-16deg)}
+.canes .cane--flip{transform:scaleX(-1) rotate(-16deg)}
+@media(max-width:600px){.cane--how{display:none}.cane--faq{width:16px;height:32px;margin:0 8px}}
 /* ---- footer ---- */
 footer{background:#2d3026;color:#f2e6d2;padding:36px 5vw;text-align:center;font-size:15px}
 footer img{width:54px;margin:0 auto 8px}
@@ -384,6 +396,12 @@ footer p{margin:6px 0 0;color:#e3d8c6}
 <!-- reusable holly sprig -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <symbol id="cane" viewBox="0 0 60 120">
+      <path d="M22 112V40a17 17 0 0 1 34 0v8" fill="none" stroke="#2b211b" stroke-opacity=".18" stroke-width="15" stroke-linecap="round" transform="translate(2 3)"/>
+      <path d="M22 112V40a17 17 0 0 1 34 0v8" fill="none" stroke="#fffaf0" stroke-width="13" stroke-linecap="round"/>
+      <path d="M22 112V40a17 17 0 0 1 34 0v8" fill="none" stroke="#bc0704" stroke-width="13" stroke-dasharray="7 7" stroke-linecap="butt"/>
+      <path d="M18 112V40a21 21 0 0 1 12-19" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="2.5" stroke-linecap="round"/>
+    </symbol>
     <symbol id="sprig" viewBox="0 0 120 54">
       <path fill="#2e5d3b" d="M58 30c-6-10-20-15-33-12 3 3 2 7-1 9 5 1 7 5 5 9 4-2 8 0 9 4 2-4 7-5 10-2 0-4 4-7 10-8z"/>
       <path fill="#3f7a4c" d="M62 30c6-10 20-15 33-12-3 3-2 7 1 9-5 1-7 5-5 9-4-2-8 0-9 4-2-4-7-5-10-2 0-4-4-7-10-8z"/>
@@ -416,7 +434,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
         <div class="cal" aria-hidden="true"><span class="cal__rings"></span><span class="cal__top">Days left</span><span class="cal__num" data-days-num>—</span></div>
         <div class="countdown__copy">
           <span class="countdown__head" data-days-head>Santa’s mailbag closes <span data-deadline-label>December 10</span></span>
-          <span class="countdown__line" data-days-line>Order early so every letter has time to travel.</span>
+          <span class="countdown__line" data-days-line>The earlier the order, the more time a letter has to travel.</span>
           <span class="countdown__price">$10 a letter</span>
         </div>
       </div>
@@ -598,6 +616,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
 
 <section class="sec sec--sand how" id="how-it-works" aria-labelledby="how-h">
   <div class="wrap">
+    <svg class="cane cane--how" aria-hidden="true"><use href="#cane"/></svg>
     <span class="kicker">How it works</span>
     <h2 id="how-h">From your home to the North Pole, and back.</h2>
     <p class="how__sub">Two minutes for you. A little wonder for them.</p>
@@ -612,7 +631,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
       </li>
       <li class="step">
         <h3>Watch your mailbox</h3>
-        <p>The letter arrives in a plain outer envelope addressed to you. Orders close <span data-deadline-label>December 10</span> so every letter has time to reach you before Christmas.</p>
+        <p>The letter arrives in a plain outer envelope addressed to you. Orders close <span data-deadline-label>December 10</span>. Delivery times depend on the mail, so ordering early is best.</p>
       </li>
     </ol>
   </div>
@@ -674,7 +693,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
 
         <div class="submit">
           <button class="btn" type="submit" id="submitBtn">Continue to secure checkout</button>
-          <p class="submit__note">Letters mail to US addresses only. You will pay $10 on Stripe’s secure checkout page, where you can also enter an email for your receipt.</p>
+          <p class="submit__note">Letters mail to US addresses only. Delivery dates are not guaranteed. You will pay $10 on Stripe’s secure checkout page, where you can also enter an email for your receipt.</p>
         </div>
         <div id="formMessage" aria-live="polite"></div>
         <noscript><p class="msg msg--err">Please turn on JavaScript to place an order.</p></noscript>
@@ -686,7 +705,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
 <!-- ============ FAQ ============ -->
 <section class="sec sec--sand faq" id="faq" aria-labelledby="faq-h">
   <div class="wrap">
-    <h2 id="faq-h">Questions for Santa’s helpers</h2>
+    <h2 id="faq-h"><svg class="cane cane--faq" aria-hidden="true"><use href="#cane"/></svg>Questions for Santa’s helpers<svg class="cane cane--faq cane--flip" aria-hidden="true"><use href="#cane"/></svg></h2>
     <div class="faq__list">
       <details>
         <summary>How much does a letter cost?</summary>
@@ -710,7 +729,11 @@ footer p{margin:6px 0 0;color:#e3d8c6}
       </details>
       <details>
         <summary>When is the last day to order?</summary>
-        <p>Orders close <span data-deadline-label>December 10</span>, so every letter has time to reach its mailbox before Christmas.</p>
+        <p>Orders close <span data-deadline-label>December 10</span>. Earlier orders give a letter more time to travel.</p>
+      </details>
+      <details>
+        <summary>Will my letter arrive before Christmas?</summary>
+        <p>Every effort is made to get letters out promptly, but delivery times are set by the mail, so arrival by a specific date, including Christmas, is not guaranteed. Ordering early gives a letter the most time to travel.</p>
       </details>
       <details>
         <summary>Do you mail outside the United States?</summary>
@@ -736,6 +759,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
   </g>
 </svg>
 <section class="final">
+  <div class="canes" aria-hidden="true"><svg class="cane"><use href="#cane"/></svg><svg class="cane cane--flip"><use href="#cane"/></svg></div>
   <h2>Let Santa answer in his own words.</h2>
   <p>$10 a letter. Orders close <span data-deadline-label>December 10</span>.</p>
   <a class="btn btn--wine" href="#order">Order a letter</a>
@@ -811,9 +835,9 @@ const JF = {
       head.textContent = 'Santa’s mailbag is closed'; line.textContent = 'Thank you for a wonderful season. See you next Christmas.';
       if (bag) bag.hidden = true; return;
     }
-    if (d === 1){ line.textContent = 'Today is the last day to order. Letters ordered today still go out on time.'; }
+    if (d === 1){ line.textContent = 'Today is the last day to order.'; }
     else if (d <= 7){ line.textContent = 'Only ' + d + ' days left. Every letter needs a little time to travel from the North Pole.'; }
-    else { line.textContent = d + ' days left to order, so every letter has time to travel before Christmas.'; }
+    else { line.textContent = d + ' days left to order. The earlier the order, the more time a letter has to travel.'; }
     box.classList.toggle('is-soon', d <= 7);
   }
   paintCountdown();
