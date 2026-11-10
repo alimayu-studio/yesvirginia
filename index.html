@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#92cdcf">
+<title>Yes, Virginia! Letters from the North Pole</title>
+<meta name="description" content="A letter from Santa Claus, mailed in a discreet outer envelope so the surprise stays a surprise. $10 per letter. Orders close December 10.">
+<meta property="og:title" content="Yes, Virginia! Letters from the North Pole">
+<meta property="og:description" content="A letter from Santa Claus for someone who still believes. $10 per letter. Orders close December 10.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yesvirginia.club/">
+<meta property="og:image" content="https://yesvirginia.club/assets/yes-virginia-logo.webp">
+<link rel="icon" type="image/webp" href="assets/favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   YES, VIRGINIA! — landing page
+   Brand colors from the brand kit. Type is set in faces that recall 1890s
+   newspapers and letterpress: IM Fell (headlines), Libre Caslon (body),
+   Special Elite (typewriter details), Homemade Apple (handwriting).
+   ========================================================================== */
+:root{
+  --sky:#92cdcf;
+  --red:#bc0704;
+  --wine:#961222;
+  --gold:#f6c240;
+  --green:#71a744;
+  --pine:#2e5d3b;
+  --cream:#fbf4e4;
+  --paper:#fffaf0;
+  --sand:#efe2c6;
+  --line:#dcc8a4;
+  --ink:#2b211b;
+  --muted:#65564a;
+  --sepia:#7a5a3a;
+  --display:'IM Fell English',Georgia,'Times New Roman',serif;
+  --caps:'IM Fell English SC',Georgia,serif;
+  --body:'Libre Caslon Text',Georgia,serif;
+  --type:'Special Elite','Courier New',monospace;
+  --hand:'Homemade Apple','Segoe Script','Bradley Hand',cursive;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .40  0 0 0 0 .28  0 0 0 0 .15  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.65;color-scheme:light}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--display);font-weight:normal;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--wine);outline-offset:3px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---- shared ---- */
+.wrap{max-width:1160px;margin:0 auto}
+.sec{position:relative;padding:clamp(64px,8vw,104px) 5vw;overflow-x:clip}
+.sec--paper{background-color:var(--cream);background-image:var(--grain)}
+.sec--sand{background-color:var(--sand);background-image:var(--grain)}
+/* soft aged-paper vignette on every paper section */
+.sec--paper::after,.sec--sand::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 120px rgba(122,90,58,.16)}
+.kicker{display:block;font-family:var(--type);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--sepia);margin-bottom:12px}
+.btn{display:inline-block;background:var(--red);color:#fff;border:0;border-radius:3px;padding:14px 26px;font-family:var(--caps);font-size:21px;line-height:1.15;letter-spacing:.02em;text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--wine);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--wine)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--wine)}
+.btn--wine{background:var(--wine);box-shadow:4px 4px 0 var(--ink)}
+.btn--wine:hover{box-shadow:2px 2px 0 var(--ink)}
+.btn[disabled]{opacity:.7;cursor:progress;transform:none}
+.textlink{color:var(--wine);font-weight:bold;text-underline-offset:5px;text-decoration-thickness:2px}
+.textlink:hover{color:var(--red)}
+
+/* ---- holly divider (a small Christmas touch between sections) ---- */
+.holly{display:flex;align-items:center;justify-content:center;gap:18px;max-width:520px;margin:0 auto 34px;color:var(--pine)}
+.holly::before,.holly::after{content:"";flex:1;border-top:2px dotted var(--line)}
+.holly svg{width:96px;height:44px;flex:none}
+
+/* ---- top stripe ---- */
+.topline{height:8px;background:linear-gradient(90deg,var(--red) 0 25%,var(--green) 25% 50%,var(--gold) 50% 75%,var(--wine) 75%)}
+
+/* ---- header + hero (brand blue, with falling snow) ---- */
+.masthead{position:relative;background:var(--sky);padding:0 5vw;overflow:hidden}
+.masthead::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.7;pointer-events:none}
+#snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.nav,.hero{position:relative;z-index:1}
+.nav{max-width:1160px;margin:0 auto;padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:clamp(26px,3vw,34px);line-height:1;color:var(--red);text-decoration:none;white-space:nowrap}
+.brand img{width:40px;height:auto}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:17px}
+.navlinks a:not(.btn){text-decoration:none;font-weight:bold}
+.navlinks a:not(.btn):hover{text-decoration:underline;text-underline-offset:5px}
+.navlinks .btn{padding:9px 18px;font-size:18px;box-shadow:3px 3px 0 var(--wine)}
+.hero{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:32px;padding:24px 0 84px}
+.hero h1{font-size:clamp(46px,5.6vw,78px);color:var(--red);margin:0 0 22px;line-height:1}
+.hero h1 em{font-style:italic;color:var(--wine)}
+.hero .lede{font-size:clamp(18px,1.8vw,21px);max-width:31em;margin-bottom:28px}
+.hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-bottom:30px}
+.hero__art{position:relative}
+.hero__art img{width:min(100%,560px);margin:0 auto;filter:drop-shadow(0 14px 14px rgba(43,33,27,.18))}
+/* round postmark, like an old cancellation stamp */
+.postmark{position:absolute;right:0;bottom:-6px;width:140px;height:140px;color:var(--wine);transform:rotate(-11deg);animation:land .7s .5s cubic-bezier(.2,.9,.3,1.2) both;opacity:.92}
+.postmark svg{width:100%;height:100%}
+@keyframes land{from{opacity:0;transform:rotate(-30deg) scale(1.7)}to{opacity:.92;transform:rotate(-11deg) scale(1)}}
+
+/* postage-stamp price and deadline badge */
+.postage{display:inline-block;padding:7px;background:radial-gradient(circle at 7px 7px,transparent 4.5px,var(--paper) 5px) -7px -7px/14px 14px;filter:drop-shadow(3px 3px 0 rgba(43,33,27,.22));transform:rotate(-1.5deg)}
+.postage__in{display:flex;align-items:center;gap:14px;background:var(--paper);padding:10px 20px 11px 12px;color:var(--red);outline:1px solid rgba(188,7,4,.35);outline-offset:-5px}
+.postage__in img{width:48px}
+.postage__big{display:block;font-family:var(--display);font-size:27px;line-height:1.05}
+.postage__small{display:block;font-family:var(--type);font-size:14px;color:var(--wine)}
+
+/* ---- 1897 newspaper clipping ---- */
+.clipping{background:var(--wine);padding:22px 5vw}
+.clipping__in{max-width:760px;margin:0 auto;text-align:center;color:#fff3df}
+.clipping__mast{display:flex;align-items:center;justify-content:center;gap:14px;font-family:var(--type);font-size:13px;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.clipping__mast::before,.clipping__mast::after{content:"";width:46px;border-top:1px solid currentColor}
+.clipping p{margin:6px 0 0;font-family:var(--display);font-style:italic;font-size:clamp(22px,2.8vw,32px);line-height:1.25}
+
+/* ---- thank-you (shown only after Stripe returns here) ---- */
+.thanks{text-align:center;border-bottom:8px solid var(--green)}
+.thanks img{width:110px;margin:0 auto 18px}
+.thanks h2{font-size:clamp(38px,5vw,58px);color:var(--red);margin-bottom:14px}
+.thanks p{max-width:34em;margin:0 auto 1em}
+.thanks .hero__actions{justify-content:center;margin:26px 0 0}
+
+/* ---- Virginia's story: an animated storybook ---- */
+.story{display:grid;grid-template-columns:minmax(230px,.62fr) 2fr;gap:clamp(28px,4.5vw,60px);align-items:center}
+.story__head h2{font-size:clamp(38px,4.4vw,56px);color:var(--red);margin-bottom:16px}
+.story__head p{color:var(--muted)}
+.story__more{font-size:16px;margin-top:18px}
+.story__more a{display:block;margin-top:6px}
+.stage{margin:0}
+.stage__frame{position:relative;aspect-ratio:16/9;background:#e9dcc0;border:10px solid var(--wine);box-shadow:0 0 0 3px var(--gold),8px 10px 0 3px rgba(43,33,27,.18);overflow:hidden;font-size:clamp(11px,1.45vw,17px)}
+.stage figcaption{margin-top:18px;font-family:var(--display);font-style:italic;color:var(--muted);font-size:18px}
+
+.reel{position:absolute;inset:0;background-color:#efe3c8;background-image:var(--grain);color:var(--ink)}
+.reel::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 90px rgba(80,50,20,.45);background:repeating-linear-gradient(0deg,rgba(0,0,0,.018) 0 2px,transparent 2px 4px)}
+.reel__snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+.scene{position:absolute;inset:0;display:grid;place-items:center;padding:6% 8%;opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s .9s}
+.scene.is-on{opacity:1;visibility:visible;transition:opacity .9s ease}
+
+/* scene 1: title card */
+.s-title{text-align:center;color:#fff3df;background:radial-gradient(ellipse at 50% 45%,#5a3d2a 0,#2b1d14 75%)}
+.s-title .city{font-family:var(--type);letter-spacing:.3em;font-size:1em;text-transform:uppercase;opacity:.8}
+.s-title .year{font-family:var(--display);font-size:5.2em;line-height:1;color:var(--gold);margin:.12em 0}
+.s-title .line{font-family:var(--display);font-style:italic;font-size:1.6em}
+
+/* scene 2: Virginia's letter, written by hand */
+.s-letter .sheet{width:min(78%,640px);background:#fffdf6;padding:5% 6%;box-shadow:0 10px 28px rgba(60,40,20,.28);transform:rotate(-1.6deg);background-image:repeating-linear-gradient(180deg,transparent 0 1.55em,#cfe0e6 1.55em calc(1.55em + 1px));background-position:0 1.1em;border-left:2px solid #e8b3ad}
+.s-letter .ink{font-family:var(--hand);font-size:1.02em;line-height:1.55em;color:#1d2a5a;min-height:8em;white-space:pre-wrap}
+.s-letter .ink::after{content:"";display:inline-block;width:.08em;height:1em;background:#1d2a5a;vertical-align:-.15em;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* scene 3: the newspaper */
+.s-paper .news{width:min(84%,700px);background:#f4ead2;color:#231a12;padding:3.5% 4.5%;box-shadow:0 10px 28px rgba(60,40,20,.3);transform:rotate(1deg)}
+.news__mast{text-align:center;border-bottom:3px double #231a12;padding-bottom:.3em}
+.news__mast b{display:block;font-family:var(--caps);font-weight:normal;font-size:3em;line-height:1}
+.news__mast span{display:flex;justify-content:space-between;font-family:var(--type);font-size:.72em;letter-spacing:.08em;border-top:1px solid #231a12;margin-top:.3em;padding-top:.2em}
+.news__head{font-family:var(--caps);font-size:1.9em;text-align:center;margin:.35em 0 .2em;line-height:1.05}
+.news__cols{columns:2;column-gap:1.4em;column-rule:1px solid #b7a37f;font-family:var(--body);font-size:.82em;line-height:1.45;text-align:justify;hyphens:auto}
+.news__cols p{margin:0 0 .5em;opacity:0;transform:translateY(6px);transition:opacity .6s,transform .6s}
+.s-paper.is-on .news__cols p{opacity:1;transform:none}
+.s-paper.is-on .news__cols p:nth-child(2){transition-delay:1.2s}
+.s-paper.is-on .news__cols p:nth-child(3){transition-delay:2.4s}
+
+/* scene 4: the answer */
+.s-yes{text-align:center;background:radial-gradient(ellipse at 50% 40%,#fff8e6 0,#eadbb8 70%)}
+.s-yes img{width:9em;margin:0 auto .4em;opacity:0;transform:scale(.85);transition:opacity 1.2s .3s,transform 1.2s .3s}
+.s-yes.is-on img{opacity:1;transform:none}
+.s-yes h3{font-family:var(--display);font-style:italic;font-size:2.7em;color:var(--red);line-height:1.08}
+
+/* scene 5: the closing line */
+.s-end{text-align:center;background:var(--sky);color:var(--ink)}
+.s-end blockquote{margin:0 auto;max-width:28em;font-family:var(--display);font-style:italic;font-size:1.7em;line-height:1.3}
+.s-end cite{display:block;margin-top:.6em;font-family:var(--type);font-style:normal;font-size:.55em;letter-spacing:.12em;text-transform:uppercase}
+.s-end .btn{margin-top:1.1em;font-size:1em}
+
+/* storybook controls */
+.reel__start{position:absolute;inset:0;z-index:5;display:grid;place-content:center;justify-items:center;gap:.9em;text-align:center;border:0;padding:0;cursor:pointer;color:#fff3df;background:radial-gradient(ellipse at 50% 42%,rgba(90,61,42,.86) 0,rgba(43,29,20,.94) 72%)}
+.reel__start .play{width:5.2em;height:5.2em;border-radius:50%;background:var(--gold);display:grid;place-items:center;box-shadow:0 0 0 .4em rgba(246,194,64,.28);transition:transform .2s}
+.reel__start:hover .play{transform:scale(1.06)}
+.reel__start .play::after{content:"";margin-left:.4em;border-left:1.5em solid var(--ink);border-top:.95em solid transparent;border-bottom:.95em solid transparent}
+.reel__start strong{font-family:var(--display);font-weight:normal;font-size:2.4em;line-height:1.1}
+.reel__start span{font-family:var(--type);font-size:.95em;letter-spacing:.08em;opacity:.85}
+.reel__bar{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;gap:.8em;padding:.55em .9em;background:linear-gradient(transparent,rgba(30,20,12,.55))}
+.reel__bar button{border:0;background:rgba(255,243,223,.92);color:var(--ink);border-radius:2em;padding:.25em .9em;font-family:var(--type);font-size:.85em;cursor:pointer}
+.reel__dots{display:flex;gap:.45em;margin-left:auto}
+.reel__dots i{width:.6em;height:.6em;border-radius:50%;background:rgba(255,243,223,.5)}
+.reel__dots i.is-on{background:var(--gold)}
+
+/* the full 1897 editorial */
+.editorial{margin-top:26px;background:var(--paper);border:1px solid var(--line);box-shadow:4px 5px 0 rgba(43,33,27,.08)}
+.editorial summary{cursor:pointer;padding:14px 20px;font-family:var(--caps);font-size:21px;color:var(--wine);list-style:none}
+.editorial summary::-webkit-details-marker{display:none}
+.editorial summary::before{content:"+ ";font-family:var(--type)}
+.editorial[open] summary::before{content:"− "}
+.editorial__body{padding:4px 26px 22px;columns:2 300px;column-gap:34px;column-rule:1px solid var(--line);font-size:16px;line-height:1.6}
+.editorial__body p{break-inside:avoid-column}
+.editorial__body .sig{font-family:var(--display);font-style:italic}
+
+/* ---- the experience ---- */
+.experience{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,80px);align-items:center}
+.experience__art img{width:100%;max-width:520px;margin:0 auto;transform:rotate(-2.5deg)}
+.experience h2{font-size:clamp(38px,4.6vw,56px);color:var(--red);margin-bottom:22px;max-width:11em}
+.perk{padding:18px 0;border-top:2px dashed var(--line)}
+.perk:last-child{padding-bottom:0}
+.perk h3{font-size:28px;color:var(--wine);margin-bottom:4px}
+.perk p{margin:0;color:var(--muted);font-size:17px;max-width:32em}
+
+/* ---- sample letter ---- */
+.letter{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,70px);align-items:center}
+.letter__copy h2{font-size:clamp(38px,4.6vw,56px);color:var(--red);margin-bottom:20px}
+.letter__copy p{color:#55453a;max-width:30em}
+.paper{position:relative;max-width:470px;margin:0 auto;background:#fffdf6;padding:46px 42px 40px;box-shadow:0 12px 30px rgba(87,58,32,.2);transform:rotate(1.4deg);border:1px solid #e9dcc5;background-image:var(--grain)}
+.paper::before{content:"";position:absolute;inset:10px;border:1px solid #eadfc9;pointer-events:none}
+.paper__top{text-align:center;color:var(--red);font-family:var(--caps);font-size:22px}
+.paper__date{display:block;text-align:center;font-family:var(--type);font-size:13px;color:var(--sepia);margin-top:2px}
+.paper h3{font-family:var(--hand);font-size:24px;color:var(--wine);margin:22px 0 14px}
+.paper p{font-family:var(--body);font-size:16.5px;line-height:1.7}
+.paper__sign{font-family:var(--hand);color:var(--red);font-size:28px;margin:16px 0 0}
+.paper__seal{position:absolute;right:-26px;top:-34px;width:104px;height:104px;border-radius:50%;background:var(--paper);border:3px solid var(--red);display:grid;place-items:center;transform:rotate(8deg);box-shadow:3px 4px 0 rgba(43,33,27,.18)}
+.paper__seal img{width:66px}
+.paper__sprig{position:absolute;left:-18px;bottom:-22px;width:96px;height:44px;transform:rotate(-18deg);color:var(--pine)}
+.paper__sample{position:absolute;right:18px;bottom:22px;padding:4px 16px 2px;border:3px double rgba(150,18,34,.75);color:rgba(150,18,34,.78);font-family:var(--caps);font-size:30px;letter-spacing:.14em;text-transform:uppercase;transform:rotate(-14deg);pointer-events:none;mix-blend-mode:multiply}
+.letter > .paper__note{grid-column:2;margin:-6px auto 0;max-width:470px;text-align:center;font-family:var(--type);font-size:13.5px;color:var(--sepia)}
+@media(max-width:860px){.letter > .paper__note{grid-column:1}}
+
+/* ---- how it works ---- */
+.how h2{font-size:clamp(38px,4.6vw,56px);color:var(--red);margin-bottom:10px;max-width:14em}
+.how__sub{color:var(--muted);margin-bottom:44px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:34px;counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;left:24px;right:calc(33.333% - 48px);top:24px;border-top:3px dotted var(--green)}
+.step{position:relative;counter-increment:s}
+.step::before{content:counter(s);position:relative;display:grid;place-items:center;width:50px;height:50px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--display);font-size:26px;line-height:1;margin-bottom:16px;box-shadow:0 0 0 7px var(--sand)}
+.step h3{font-size:28px;color:var(--wine);margin-bottom:6px}
+.step p{margin:0;color:var(--muted);font-size:17px}
+
+/* ---- order form: an airmail envelope ---- */
+.envelope{position:relative;max-width:860px;margin:0 auto;padding:15px;background:repeating-linear-gradient(-45deg,var(--red) 0 16px,var(--paper) 16px 32px,var(--pine) 32px 48px,var(--paper) 48px 64px);box-shadow:9px 10px 0 rgba(43,33,27,.16)}
+.envelope__paper{position:relative;background-color:#fffdf6;background-image:var(--grain);padding:clamp(24px,5vw,54px)}
+.envelope__stamp{position:absolute;right:clamp(14px,3vw,30px);top:clamp(14px,3vw,26px);width:92px;padding:6px;background:radial-gradient(circle at 6px 6px,transparent 4px,#fff 4.5px) -6px -6px/12px 12px;transform:rotate(5deg);filter:drop-shadow(2px 2px 0 rgba(43,33,27,.2))}
+.envelope__stamp div{background:var(--sky);padding:6px 6px 4px;text-align:center;font-family:var(--type);font-size:11px;color:var(--wine);line-height:1.1}
+.envelope__stamp img{width:56px;margin:0 auto 3px}
+.quill{position:absolute;left:-46px;top:-80px;width:120px;transform:rotate(-12deg) scaleX(-1);pointer-events:none;filter:drop-shadow(0 6px 5px rgba(43,33,27,.18));z-index:2}
+.envelope h2{font-size:clamp(42px,5.2vw,62px);color:var(--red);text-align:center;margin-bottom:12px;padding:0 70px}
+.order__intro{text-align:center;color:var(--muted);max-width:33em;margin:0 auto 22px}
+.discreet{display:flex;gap:14px;align-items:flex-start;max-width:36em;margin:0 auto 30px;padding:14px 18px;background:#f4ecda;border:1px dashed var(--sepia);font-size:16px;color:#4a3b31}
+.discreet svg{flex:none;width:34px;height:auto;color:var(--wine);margin-top:2px}
+.discreet b{color:var(--wine)}
+.fs{border:0;padding:0;margin:0 0 30px;min-width:0}
+.fs legend{display:block;width:100%;padding:0 0 8px;margin-bottom:16px;border-bottom:2px dashed var(--line);font-family:var(--display);font-size:30px;color:var(--wine);line-height:1.1}
+.fs legend small{display:block;margin-top:4px;font-family:var(--body);font-size:15px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px 18px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0;grid-column:span 6}
+.field--half{grid-column:span 3}
+.field--third{grid-column:span 2}
+.field label{font-family:var(--type);font-size:15px;letter-spacing:.04em;line-height:1.3}
+.hint{color:var(--muted);font-size:13px}
+.field input{width:100%;padding:12px 14px;font-size:18px;background:#fff;border:2px solid #d9c7a6;border-radius:3px;transition:border-color .15s,box-shadow .15s}
+.field input.handwritten{font-family:var(--hand);font-size:18px;padding:13px 14px 9px}
+.field input::placeholder{color:#a3927f}
+.field input:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 4px rgba(46,93,59,.2)}
+.field input:user-invalid{border-color:var(--red)}
+.trap{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit{margin-top:8px;text-align:center}
+.submit .btn{font-size:24px;padding:15px 34px}
+.submit__note{font-size:15px;color:var(--muted);max-width:32em;margin:16px auto 0}
+.msg{margin-top:22px;padding:15px 18px;border:2px solid;border-radius:3px;font-size:16px}
+.msg--ok{background:#eef6e8;border-color:#a9cc90;color:#2b4a1d}
+.msg--err{background:#fdecea;border-color:#e3a39e;color:#7a1410}
+.msg a{font-weight:bold}
+.closed{text-align:center;padding:10px 0 4px}
+.closed h3{font-size:34px;color:var(--wine);margin-bottom:10px}
+
+/* ---- FAQ ---- */
+.faq h2{font-size:clamp(38px,4.6vw,56px);color:var(--red);text-align:center;margin-bottom:30px}
+.faq__list{max-width:780px;margin:0 auto}
+.faq details{border-top:2px dashed var(--line)}
+.faq details:last-child{border-bottom:2px dashed var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:18px 4px;font-family:var(--display);font-size:24px;color:var(--wine);line-height:1.2}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--type);color:var(--red);flex:none}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 4px 18px;margin:0;color:#4a3b31;max-width:40em}
+
+/* ---- closing band with a string of lights ---- */
+.lights{display:block;width:100%;height:46px;background:var(--sky)}
+.lights .bulb{animation:twinkle 2.4s ease-in-out infinite}
+.lights .bulb:nth-of-type(3n){animation-delay:.8s}
+.lights .bulb:nth-of-type(3n+1){animation-delay:1.6s}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.45}}
+.final{background:var(--sky);text-align:center;padding:clamp(40px,6vw,70px) 5vw clamp(64px,8vw,92px);position:relative}
+.final::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.7;pointer-events:none}
+.final > *{position:relative}
+.final h2{font-size:clamp(42px,5.4vw,66px);color:var(--red);margin:0 auto 14px;max-width:13em}
+.final p{max-width:30em;margin:0 auto 28px}
+
+/* ---- footer ---- */
+footer{background:#2d3026;color:#f2e6d2;padding:36px 5vw;text-align:center;font-size:15px}
+footer img{width:54px;margin:0 auto 8px}
+.footer__brand{font-family:var(--display);font-size:30px;color:var(--gold);line-height:1.1}
+footer p{margin:6px 0 0;color:#e3d8c6}
+.fine{font-size:13px;opacity:.75;margin-top:16px}
+
+/* ---- responsive ---- */
+@media(max-width:960px){.quill{display:none}}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;text-align:center;padding:10px 0 60px;gap:18px}
+  .hero .lede{margin-left:auto;margin-right:auto}
+  .hero__actions{justify-content:center}
+  .hero__art{order:-1;max-width:420px;margin:0 auto}
+  .postmark{width:104px;height:104px;right:-4px}
+  .experience,.letter,.story{grid-template-columns:1fr}
+  .experience__art{order:2}
+  .experience h2{max-width:none}
+  .steps{grid-template-columns:1fr;gap:30px}
+  .steps::before{display:none}
+  .step{padding-left:70px}
+  .step::before{position:absolute;left:0;top:0;margin:0}
+  .paper__seal{right:-6px;top:-34px;width:78px;height:78px}
+  .paper__seal img{width:50px}
+  .paper__top{padding:0 30px;line-height:1.2}
+  .stage__frame{font-size:clamp(8px,2.3vw,15px)}
+}
+@media(max-width:600px){
+  body{font-size:17px}
+  .navlinks a:not(.btn){display:none}
+  .nav{gap:12px}
+  .brand{font-size:24px;gap:8px}
+  .brand img{width:32px}
+  .navlinks .btn{white-space:nowrap;padding:8px 13px;font-size:16px}
+  .field--half,.field--third{grid-column:span 6}
+  .field--zip{grid-column:span 3}
+  .field--state{grid-column:span 3}
+  .envelope{padding:10px}
+  .envelope__stamp{width:70px}
+  .envelope__stamp img{width:40px}
+  .envelope h2{padding:0 60px 0 0;text-align:left}
+  .order__intro{text-align:left}
+  .paper{padding:40px 26px 34px}
+  .postage__in{gap:10px;padding-right:14px}
+  .postage__big{font-size:23px}
+  .faq summary{font-size:21px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="topline" aria-hidden="true"></div>
+
+<!-- reusable holly sprig -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="sprig" viewBox="0 0 120 54">
+      <path fill="#2e5d3b" d="M58 30c-6-10-20-15-33-12 3 3 2 7-1 9 5 1 7 5 5 9 4-2 8 0 9 4 2-4 7-5 10-2 0-4 4-7 10-8z"/>
+      <path fill="#3f7a4c" d="M62 30c6-10 20-15 33-12-3 3-2 7 1 9-5 1-7 5-5 9-4-2-8 0-9 4-2-4-7-5-10-2 0-4-4-7-10-8z"/>
+      <circle cx="54" cy="31" r="6.5" fill="#bc0704"/><circle cx="66" cy="31" r="6.5" fill="#bc0704"/><circle cx="60" cy="22" r="6.5" fill="#961222"/>
+      <circle cx="52" cy="29" r="1.8" fill="#fff" opacity=".6"/><circle cx="64" cy="29" r="1.8" fill="#fff" opacity=".6"/><circle cx="58" cy="20" r="1.8" fill="#fff" opacity=".6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="masthead" id="top">
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#top"><img src="assets/santa.webp" alt="" width="40" height="44">Yes, Virginia!</a>
+    <div class="navlinks">
+      <a href="#story">Virginia’s story</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#faq">Questions</a>
+      <a class="btn" href="#order">Order a letter</a>
+    </div>
+  </nav>
+  <div class="hero">
+    <div class="hero__copy">
+      <h1>A letter from Santa. <em>A Christmas to remember.</em></h1>
+      <p class="lede">In 1897, an eight-year-old girl named Virginia wrote to a New York newspaper to ask if Santa Claus was real. The editor wrote back, and his answer became the most famous reply in newspaper history. This Christmas, someone you love can get a letter of their own.</p>
+      <div class="hero__actions">
+        <a class="btn" href="#order">Order a letter</a>
+        <a class="textlink" href="#story">Watch Virginia’s story</a>
+      </div>
+      <div class="postage" aria-live="polite">
+        <div class="postage__in">
+          <img src="assets/santa.webp" alt="" width="48" height="53">
+          <div>
+            <span class="postage__big">$10 a letter · Order by <span data-deadline-label>December 10</span></span>
+            <span class="postage__small" data-days></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__art">
+      <img src="assets/yes-virginia-logo.webp" alt="Yes, Virginia! The title framed by holly, evergreen branches, and candy canes, with a pencil in a Santa hat standing in for the letter I." width="1200" height="1000">
+      <div class="postmark" aria-hidden="true">
+        <svg viewBox="0 0 140 140">
+          <defs><path id="ring" d="M70 70 m-50 0 a50 50 0 1 1 100 0 a50 50 0 1 1 -100 0"/></defs>
+          <circle cx="70" cy="70" r="64" fill="none" stroke="currentColor" stroke-width="3"/>
+          <circle cx="70" cy="70" r="38" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text font-family="Special Elite, monospace" font-size="12.5" letter-spacing="2.2" fill="currentColor"><textPath href="#ring">NORTH POLE · SPECIAL DELIVERY ·</textPath></text>
+          <text x="70" y="66" text-anchor="middle" font-family="IM Fell English SC, Georgia, serif" font-size="15" fill="currentColor">DEC</text>
+          <text x="70" y="84" text-anchor="middle" font-family="IM Fell English SC, Georgia, serif" font-size="17" fill="currentColor">2026</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="clipping">
+  <div class="clipping__in">
+    <span class="clipping__mast">The Sun · New York · September 21, 1897</span>
+    <p>“Yes, Virginia, there is a Santa Claus.”</p>
+  </div>
+</div>
+
+<main>
+
+<!-- Shown only when Stripe sends the customer back to  yesvirginia.club/#thank-you -->
+<section class="sec sec--paper thanks" id="thank-you" hidden aria-labelledby="thanks-h">
+  <div class="wrap">
+    <img src="assets/santa.webp" alt="" width="110" height="120">
+    <h2 id="thanks-h">Thank you. Santa has your request.</h2>
+    <p>Your payment went through. Santa’s letter will be prepared and mailed to the address you gave, inside a plain outer envelope addressed to you.</p>
+    <p><strong>Want to send more Christmas magic?</strong> Every additional letter is $10. Sending to a different address? Place a separate order for each address so every letter reaches the right mailbox.</p>
+    <div class="hero__actions">
+      <button class="btn" type="button" id="another">Order another letter</button>
+      <a class="textlink" href="#top" id="thanks-close">Back to the top</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE STORY OF VIRGINIA ============ -->
+<section class="sec sec--paper" id="story" aria-labelledby="story-h">
+  <div class="holly" aria-hidden="true"><svg><use href="#sprig"/></svg></div>
+  <div class="wrap story">
+    <div class="story__head">
+      <span class="kicker">A true story</span>
+      <h2 id="story-h">The story of Virginia</h2>
+      <p>She asked a newspaper one honest question. An editor took it seriously and wrote back. That reply is where “Yes, Virginia!” comes from.</p>
+      <p class="story__more">More to watch:
+        <a class="textlink" href="https://en.wikipedia.org/wiki/Yes,_Virginia_(TV_program)" target="_blank" rel="noopener">The animated TV special, “Yes, Virginia” (2009)</a>
+      </p>
+    </div>
+    <figure class="stage">
+      <div class="stage__frame">
+        <div class="reel" id="reel" aria-roledescription="animated storybook" aria-label="The story of Virginia">
+          <canvas class="reel__snow" aria-hidden="true"></canvas>
+
+          <div class="scene s-title" data-dur="5200">
+            <div>
+              <div class="city">New York City</div>
+              <div class="year">1897</div>
+              <div class="line">A little girl has a big question.</div>
+            </div>
+          </div>
+
+          <div class="scene s-letter" data-dur="15000">
+            <div class="sheet"><div class="ink" data-write="Dear Editor—&#10;I am 8 years old. Some of my little friends say there is no Santa Claus. Papa says, “If you see it in The Sun, it’s so.” Please tell me the truth, is there a Santa Claus?&#10;— Virginia O’Hanlon"></div></div>
+          </div>
+
+          <div class="scene s-paper" data-dur="9000">
+            <div class="news">
+              <div class="news__mast"><b>The Sun</b><span><span>New York</span><span>Tuesday, September 21, 1897</span><span>Editorial</span></span></div>
+              <div class="news__head">Is There a Santa Claus?</div>
+              <div class="news__cols">
+                <p>“Virginia, your little friends are wrong. They have been affected by the skepticism of a skeptical age.”</p>
+                <p>“Alas! how dreary would be the world if there were no Santa Claus! It would be as dreary as if there were no Virginias.”</p>
+                <p>“Nobody sees Santa Claus, but that is no sign that there is no Santa Claus. The most real things in the world are those that neither children nor men can see.”</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="scene s-yes" data-dur="6500">
+            <div>
+              <img src="assets/emblem.webp" alt="" width="475" height="520">
+              <h3>“Yes, Virginia, there is a Santa Claus.”</h3>
+            </div>
+          </div>
+
+          <div class="scene s-end" data-dur="0">
+            <div>
+              <blockquote>“A thousand years from now, Virginia, nay ten times ten thousand years from now, he will continue to make glad the heart of childhood.”<cite>Francis P. Church, The Sun, 1897</cite></blockquote>
+              <a class="btn" href="#order">Send a letter from Santa</a>
+            </div>
+          </div>
+
+          <button class="reel__start" type="button" id="reelStart">
+            <span class="play" aria-hidden="true"></span>
+            <strong>The story of Virginia</strong>
+            <span>Press play · about one minute</span>
+          </button>
+          <div class="reel__bar" hidden>
+            <button type="button" id="reelPause">Pause</button>
+            <button type="button" id="reelRestart">Start over</button>
+            <div class="reel__dots" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>An animated storybook of Virginia’s letter and the editor’s answer, in their own words.</figcaption>
+    </figure>
+  </div>
+  <div class="wrap">
+    <details class="editorial">
+      <summary>Read the full 1897 letter and reply</summary>
+      <div class="editorial__body">
+        <p><em>Dear Editor—I am 8 years old. Some of my little friends say there is no Santa Claus. Papa says, “If you see it in The Sun, it’s so.” Please tell me the truth, is there a Santa Claus?</em><br><span class="sig">Virginia O’Hanlon</span></p>
+        <p>Virginia, your little friends are wrong. They have been affected by the skepticism of a skeptical age. They do not believe except they see. They think that nothing can be which is not comprehensible by their little minds. All minds, Virginia, whether they be men’s or children’s, are little. In this great universe of ours, man is a mere insect, an ant, in his intellect as compared with the boundless world about him, as measured by the intelligence capable of grasping the whole of truth and knowledge.</p>
+        <p>Yes, Virginia, there is a Santa Claus. He exists as certainly as love and generosity and devotion exist, and you know that they abound and give to your life its highest beauty and joy. Alas! how dreary would be the world if there were no Santa Claus! It would be as dreary as if there were no Virginias. There would be no childlike faith then, no poetry, no romance to make tolerable this existence. We should have no enjoyment, except in sense and sight. The eternal light with which childhood fills the world would be extinguished.</p>
+        <p>Not believe in Santa Claus! You might as well not believe in fairies. You might get your papa to hire men to watch in all the chimneys on Christmas eve to catch Santa Claus, but even if you did not see Santa Claus coming down, what would that prove? Nobody sees Santa Claus, but that is no sign that there is no Santa Claus. The most real things in the world are those that neither children nor men can see. Did you ever see fairies dancing on the lawn? Of course not, but that’s no proof that they are not there. Nobody can conceive or imagine all the wonders there are unseen and unseeable in the world.</p>
+        <p>You tear apart the baby’s rattle and see what makes the noise inside, but there is a veil covering the unseen world which not the strongest man, nor even the united strength of all the strongest men that ever lived could tear apart. Only faith, poetry, love, romance, can push aside that curtain and view and picture the supernal beauty and glory beyond. Is it all real? Ah, Virginia, in all this world there is nothing else real and abiding.</p>
+        <p>No Santa Claus! Thank God! he lives and lives forever. A thousand years from now, Virginia, nay 10 times 10,000 years from now, he will continue to make glad the heart of childhood.<br><span class="sig">Francis P. Church, The New York Sun, 1897</span></p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="sec sec--sand" id="experience">
+  <div class="wrap experience">
+    <div class="experience__art">
+      <img src="assets/writing-desk.webp" alt="A desk set for writing: a green ink bottle with holly, a feather quill with a green bow, a red fountain pen, and Christmas-tree stationery and tape." width="1300" height="943" loading="lazy">
+    </div>
+    <div>
+      <span class="kicker">What arrives</span>
+      <h2>A little magic, addressed to them.</h2>
+      <div class="perk">
+        <h3>Written to them by name</h3>
+        <p>Santa writes to the person you name, in warm, old-fashioned Christmas style, on stationery from the North Pole.</p>
+      </div>
+      <div class="perk">
+        <h3>Delivered discreetly</h3>
+        <p>The letter travels inside a plain outer envelope addressed to you. You choose the moment the magic happens: on the pillow, in the stocking, or in the mailbox.</p>
+      </div>
+      <div class="perk">
+        <h3>A keepsake for years</h3>
+        <p>The kind of letter that gets tucked into a drawer and found again, years later, with a smile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--paper">
+  <div class="wrap letter">
+    <div class="letter__copy">
+      <span class="kicker">A peek inside</span>
+      <h2>Not just any letter. Their letter.</h2>
+      <p>Every letter goes out with the recipient’s name on it, signed by Santa himself. Children, grandchildren, friends, or anyone who still believes in the magic of Christmas can get one.</p>
+      <p><strong>The sample here is for illustration only.</strong> It shows the tone and keepsake feel, not the exact letter that will arrive.</p>
+      <a class="textlink" href="#order">Send one this Christmas</a>
+    </div>
+    <div class="paper">
+      <div class="paper__seal" aria-hidden="true"><img src="assets/santa.webp" alt="" width="66" height="72" loading="lazy"></div>
+      <div class="paper__top">From the desk of Santa Claus</div>
+      <span class="paper__date">The North Pole · December 2026</span>
+      <h3>Dear [Name],</h3>
+      <p>Greetings from the North Pole!</p>
+      <p>The workshop is bustling, the reindeer are getting ready, and your name has made its way onto my Christmas correspondence list.</p>
+      <p>Keep being curious, kind, and wonderfully yourself. Wishing you a very merry Christmas!</p>
+      <div class="paper__sign">Santa Claus</div>
+      <svg class="paper__sprig" aria-hidden="true"><use href="#sprig"/></svg>
+      <div class="paper__sample" aria-hidden="true">Sample</div>
+    </div>
+    <p class="paper__note">Sample letter, shown for illustrative purposes only. Actual wording, stationery, and design will differ.</p>
+  </div>
+</section>
+
+<section class="sec sec--sand how" id="how-it-works" aria-labelledby="how-h">
+  <div class="wrap">
+    <span class="kicker">How it works</span>
+    <h2 id="how-h">From your home to the North Pole, and back.</h2>
+    <p class="how__sub">Two minutes for you. A little wonder for them.</p>
+    <ol class="steps">
+      <li class="step">
+        <h3>Tell Santa who it is for</h3>
+        <p>Share three things: the name Santa should write to, your name, and your mailing address.</p>
+      </li>
+      <li class="step">
+        <h3>Check out securely</h3>
+        <p>Pay $10 through Stripe’s secure checkout. One letter, one checkout.</p>
+      </li>
+      <li class="step">
+        <h3>Watch your mailbox</h3>
+        <p>The letter arrives in a plain outer envelope addressed to you. Orders close <span data-deadline-label>December 10</span> so every letter has time to reach you before Christmas.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ ORDER FORM ============ -->
+<section class="sec sec--paper order" id="order" aria-labelledby="order-h">
+  <div class="holly" aria-hidden="true"><svg><use href="#sprig"/></svg></div>
+  <div class="envelope">
+    <img class="quill" src="assets/quill.webp" alt="" width="120" height="140" loading="lazy">
+    <div class="envelope__paper">
+      <div class="envelope__stamp" aria-hidden="true"><div><img src="assets/santa.webp" alt="" width="56" height="61">NORTH POLE<br>$10</div></div>
+      <h2 id="order-h">Write to Santa.</h2>
+      <p class="order__intro">One letter per order. Fill this in, then finish with a secure $10 checkout.</p>
+
+      <div class="discreet">
+        <svg viewBox="0 0 40 30" aria-hidden="true"><rect x="1.5" y="1.5" width="37" height="27" rx="2" fill="none" stroke="currentColor" stroke-width="3"/><path d="M2 3l18 13L38 3" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+        <span><b>Discreet delivery.</b> Santa’s letter is sealed inside a plain outer envelope addressed to you, so the surprise stays a surprise until you hand it over.</span>
+      </div>
+
+      <div class="closed" id="closed" hidden>
+        <h3>Orders are closed for this year.</h3>
+        <p>Santa’s mailbag is full. Thank you for stopping by, and come back next Christmas.</p>
+      </div>
+
+      <form id="orderForm" novalidate>
+        <fieldset class="fs">
+          <legend>Who is the letter for?<small>The name Santa will write to, just as it should appear on the letter.</small></legend>
+          <div class="grid">
+            <div class="field"><label for="recipientName">Recipient’s name</label><input class="handwritten" id="recipientName" name="recipientName" autocomplete="off" placeholder="e.g. Virginia" maxlength="80" required></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fs">
+          <legend>Who is sending it?<small>Your name and mailing address. The outer envelope comes to you.</small></legend>
+          <div class="grid">
+            <div class="field"><label for="senderName">Your name</label><input id="senderName" name="senderName" autocomplete="name" maxlength="100" required></div>
+            <div class="field field--half"><label for="address1">Street address</label><input id="address1" name="address1" autocomplete="address-line1" maxlength="120" required></div>
+            <div class="field field--half"><label for="address2">Apartment or unit <span class="hint">(optional)</span></label><input id="address2" name="address2" autocomplete="address-line2" maxlength="60"></div>
+            <div class="field field--third"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2" maxlength="60" required></div>
+            <div class="field field--third field--state"><label for="state">State</label><input id="state" name="state" autocomplete="address-level1" maxlength="30" required></div>
+            <div class="field field--third field--zip"><label for="zip">ZIP code</label><input id="zip" name="zip" autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-?[0-9]{4})?" maxlength="10" required></div>
+          </div>
+        </fieldset>
+
+        <!-- spam trap: real people never see or fill this -->
+        <div class="trap" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <div class="submit">
+          <button class="btn" type="submit" id="submitBtn">Continue to secure checkout</button>
+          <p class="submit__note">Letters mail to US addresses only. You will pay $10 on Stripe’s secure checkout page, where you can also enter an email for your receipt.</p>
+        </div>
+        <div id="formMessage" aria-live="polite"></div>
+        <noscript><p class="msg msg--err">Please turn on JavaScript to place an order.</p></noscript>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec sec--sand faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <h2 id="faq-h">Questions for Santa’s helpers</h2>
+    <div class="faq__list">
+      <details>
+        <summary>How much does a letter cost?</summary>
+        <p>Each letter is $10. It is a one-time purchase, with no subscription.</p>
+      </details>
+      <details>
+        <summary>Who can receive a letter?</summary>
+        <p>Anyone who still believes in the magic of Christmas: a child, a grandchild, a friend, or a family member of any age.</p>
+      </details>
+      <details>
+        <summary>Why does the letter come to me and not to them?</summary>
+        <p>So the surprise stays a surprise. Santa’s letter is sealed inside a plain outer envelope addressed to you. Open the outer envelope, and the letter inside is ready to hand over, leave under the tree, or slip into a stocking.</p>
+      </details>
+      <details>
+        <summary>What information does Santa need?</summary>
+        <p>Only three things: the recipient’s name, your name, and your mailing address. At checkout, Stripe asks for an email so it can send your receipt.</p>
+      </details>
+      <details>
+        <summary>Can I order more than one letter?</summary>
+        <p>Yes. Place one order for each letter. If the letters go to different addresses, place a separate order for each address so every letter reaches the right mailbox.</p>
+      </details>
+      <details>
+        <summary>When is the last day to order?</summary>
+        <p>Orders close <span data-deadline-label>December 10</span>, so every letter has time to reach its mailbox before Christmas.</p>
+      </details>
+      <details>
+        <summary>Do you mail outside the United States?</summary>
+        <p>Not this year. Letters mail to US addresses only.</p>
+      </details>
+      <details>
+        <summary>Is my payment secure?</summary>
+        <p>Yes. Payment happens on Stripe’s secure checkout page. Card details never touch this website.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<svg class="lights" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 6 Q100 34 200 8 T400 8 T600 8 T800 8 T1000 8 T1200 8" fill="none" stroke="#2d3026" stroke-width="2"/>
+  <g>
+    <ellipse class="bulb" cx="50" cy="26" rx="7" ry="10" fill="#bc0704"/><ellipse class="bulb" cx="150" cy="25" rx="7" ry="10" fill="#f6c240"/>
+    <ellipse class="bulb" cx="250" cy="25" rx="7" ry="10" fill="#71a744"/><ellipse class="bulb" cx="350" cy="25" rx="7" ry="10" fill="#961222"/>
+    <ellipse class="bulb" cx="450" cy="25" rx="7" ry="10" fill="#f6c240"/><ellipse class="bulb" cx="550" cy="25" rx="7" ry="10" fill="#bc0704"/>
+    <ellipse class="bulb" cx="650" cy="25" rx="7" ry="10" fill="#71a744"/><ellipse class="bulb" cx="750" cy="25" rx="7" ry="10" fill="#f6c240"/>
+    <ellipse class="bulb" cx="850" cy="25" rx="7" ry="10" fill="#bc0704"/><ellipse class="bulb" cx="950" cy="25" rx="7" ry="10" fill="#961222"/>
+    <ellipse class="bulb" cx="1050" cy="25" rx="7" ry="10" fill="#71a744"/><ellipse class="bulb" cx="1150" cy="25" rx="7" ry="10" fill="#f6c240"/>
+  </g>
+</svg>
+<section class="final">
+  <h2>Let Santa answer in his own words.</h2>
+  <p>$10 a letter. Orders close <span data-deadline-label>December 10</span>.</p>
+  <a class="btn btn--wine" href="#order">Order a letter</a>
+</section>
+
+</main>
+
+<footer>
+  <img src="assets/santa.webp" alt="" width="54" height="59" loading="lazy">
+  <div class="footer__brand">Yes, Virginia!</div>
+  <p>Letters from the North Pole</p>
+  <p class="fine">© 2026 Yes, Virginia! The 1897 letter and editorial from The Sun are in the public domain.</p>
+</footer>
+
+<script>
+/* ==========================================================================
+   SETTINGS
+   ========================================================================== */
+const CONFIG = {
+  // Stripe Payment Link ($10, Yes, Virginia! Letter from Santa). After payment, Stripe returns to /#thank-you.
+  STRIPE_LINK: 'https://buy.stripe.com/eVq28tbaJ86KdlY5Vm8Vi0a',
+  // Jotform that stores each order (recipient, sender, address, order ID).
+  JOTFORM_ID: '263128626967065',
+  // Last moment to order, Eastern time. After this the form closes by itself.
+  DEADLINE: '2026-12-10T23:59:59-05:00',
+  DEADLINE_LABEL: 'December 10'
+};
+// Jotform field names, matched to the questions on the form.
+const JF = {
+  orderId:'q2_q2_textbox0', recipientName:'q3_q3_textbox1', senderName:'q4_q4_textbox2',
+  address1:'q5_q5_textbox3', address2:'q6_q6_textbox4', city:'q7_q7_textbox5', state:'q8_q8_textbox6', zip:'q9_q9_textbox7'
+};
+
+(function(){
+  const $ = (s, r=document) => r.querySelector(s);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- snowfall ---- */
+  function snow(canvas, count, speed){
+    if (reduce || !canvas) return {stop(){}, start(){}};
+    const ctx = canvas.getContext('2d'); let flakes = [], raf = 0, w = 0, h = 0, on = false;
+    function size(){ const r = canvas.getBoundingClientRect(); w = canvas.width = r.width; h = canvas.height = r.height; }
+    function make(){ flakes = Array.from({length:count}, () => ({x:Math.random()*w, y:Math.random()*h, r:Math.random()*2.2+.8, s:(Math.random()*.6+.35)*speed, d:Math.random()*Math.PI*2})); }
+    function tick(){
+      ctx.clearRect(0,0,w,h); ctx.fillStyle = 'rgba(255,255,255,.85)';
+      for (const f of flakes){ f.y += f.s; f.d += .01; f.x += Math.sin(f.d)*.35; if (f.y > h+4){ f.y = -4; f.x = Math.random()*w; } ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,Math.PI*2); ctx.fill(); }
+      raf = requestAnimationFrame(tick);
+    }
+    size(); make(); addEventListener('resize', () => { size(); make(); });
+    return { start(){ if (!on){ on = true; tick(); } }, stop(){ on = false; cancelAnimationFrame(raf); ctx.clearRect(0,0,w,h); } };
+  }
+  const headerSnow = snow($('#snow'), 70, 1); headerSnow.start();
+
+  /* ---- deadline label + countdown ---- */
+  const deadline = new Date(CONFIG.DEADLINE);
+  const isClosed = Date.now() > deadline.getTime();
+  document.querySelectorAll('[data-deadline-label]').forEach(el => el.textContent = CONFIG.DEADLINE_LABEL);
+  const daysEl = $('[data-days]');
+  if (daysEl){
+    if (isClosed) daysEl.textContent = 'Orders are closed';
+    else { const d = Math.ceil((deadline.getTime() - Date.now()) / 86400000); daysEl.textContent = d <= 1 ? 'Last day to order' : d + ' days left to order'; }
+  }
+  const form = $('#orderForm'), msg = $('#formMessage'), btn = $('#submitBtn');
+  if (isClosed){ form.hidden = true; $('#closed').hidden = false; }
+
+  /* ---- animated storybook ---- */
+  (function(){
+    const reel = $('#reel'); const scenes = [...reel.querySelectorAll('.scene')];
+    const startBtn = $('#reelStart'), bar = reel.querySelector('.reel__bar'), pauseBtn = $('#reelPause'), dots = reel.querySelector('.reel__dots');
+    const flakes = snow(reel.querySelector('.reel__snow'), 40, .7);
+    scenes.forEach(() => dots.appendChild(document.createElement('i')));
+    let i = -1, timer = 0, typer = 0, paused = false, left = 0, started = 0;
+    function write(el){
+      const text = el.dataset.write; let n = 0; el.textContent = '';
+      clearInterval(typer);
+      if (reduce){ el.textContent = text; return; }
+      typer = setInterval(() => { if (paused) return; n++; el.textContent = text.slice(0,n); if (n >= text.length) clearInterval(typer); }, 42);
+    }
+    function show(k){
+      i = k; scenes.forEach((s,j) => s.classList.toggle('is-on', j === k));
+      [...dots.children].forEach((d,j) => d.classList.toggle('is-on', j === k));
+      const ink = scenes[k].querySelector('[data-write]'); if (ink) write(ink);
+      const dur = +scenes[k].dataset.dur; clearTimeout(timer);
+      if (dur){ left = dur; started = Date.now(); timer = setTimeout(() => show(k+1), dur); }
+      else { pauseBtn.hidden = true; flakes.stop(); }
+    }
+    function play(){ startBtn.hidden = true; bar.hidden = false; pauseBtn.hidden = false; paused = false; pauseBtn.textContent = 'Pause'; flakes.start(); show(0); }
+    startBtn.addEventListener('click', play);
+    $('#reelRestart').addEventListener('click', play);
+    pauseBtn.addEventListener('click', () => {
+      paused = !paused; pauseBtn.textContent = paused ? 'Play' : 'Pause';
+      if (paused){ clearTimeout(timer); left -= Date.now() - started; flakes.stop(); }
+      else { started = Date.now(); timer = setTimeout(() => show(i+1), Math.max(left, 300)); flakes.start(); }
+    });
+  })();
+
+  /* ---- thank-you panel (Stripe returns to /#thank-you) ---- */
+  const thanks = $('#thank-you');
+  function syncHash(){ const on = location.hash === '#thank-you'; thanks.hidden = !on; if (on) thanks.scrollIntoView({block:'start'}); }
+  addEventListener('hashchange', syncHash); syncHash();
+  function closeThanks(){ history.replaceState(null,'',location.pathname+location.search); thanks.hidden = true; }
+  $('#thanks-close').addEventListener('click', closeThanks);
+
+  /* ---- keep sender details for "order another letter" (this browser only) ---- */
+  const SENDER = ['senderName','address1','address2','city','state','zip'];
+  const store = {
+    get(){ try { return JSON.parse(localStorage.getItem('yv_sender') || 'null'); } catch(e){ return null; } },
+    set(v){ try { localStorage.setItem('yv_sender', JSON.stringify(v)); } catch(e){} }
+  };
+  $('#another').addEventListener('click', () => {
+    form.reset(); const p = store.get(); if (p) SENDER.forEach(k => { if (p[k]) form[k].value = p[k]; });
+    msg.innerHTML = ''; btn.disabled = false; btn.textContent = 'Continue to secure checkout';
+    closeThanks(); $('#order').scrollIntoView({block:'start'});
+    setTimeout(() => form.recipientName.focus({preventScroll:true}), 450);
+  });
+
+  /* ---- submit: save the order to Jotform, then hand off to Stripe ---- */
+  function say(kind, html){ msg.innerHTML = '<div class="msg msg--' + kind + '" role="' + (kind === 'err' ? 'alert' : 'status') + '">' + html + '</div>'; }
+  function orderId(){
+    const r = crypto.getRandomValues(new Uint32Array(1))[0].toString(36).toUpperCase().padStart(4,'0').slice(0,4);
+    return 'YV-' + Date.now().toString(36).toUpperCase() + '-' + r;
+  }
+  function checkoutUrl(id){ const u = new URL(CONFIG.STRIPE_LINK); u.searchParams.set('client_reference_id', id); return u.toString(); }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (isClosed) return;
+    if (!form.reportValidity()) return;
+    if (form.website.value) return;   // bot: stay silent
+
+    const id = orderId();
+    const body = new URLSearchParams();
+    body.append('formID', CONFIG.JOTFORM_ID);
+    body.append('simple_spc', CONFIG.JOTFORM_ID + '-' + CONFIG.JOTFORM_ID);
+    body.append(JF.orderId, id);
+    ['recipientName','senderName','address1','address2','city','state','zip'].forEach(k => body.append(JF[k], form[k].value.trim()));
+
+    btn.disabled = true; btn.textContent = 'Sending to the North Pole…'; msg.innerHTML = '';
+    const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 15000);
+    try {
+      await fetch('https://submit.jotform.com/submit/' + CONFIG.JOTFORM_ID + '/', {method:'POST', mode:'no-cors', body, signal: ctrl.signal});
+    } catch (err){
+      clearTimeout(t); btn.disabled = false; btn.textContent = 'Continue to secure checkout';
+      say('err', '<strong>The details did not send.</strong> Nothing was charged. Check your connection and press the button again.');
+      return;
+    }
+    clearTimeout(t);
+    const p = {}; SENDER.forEach(k => p[k] = form[k].value); store.set(p);
+    const url = checkoutUrl(id);
+    btn.textContent = 'Taking you to checkout…';
+    say('ok', '<strong>Santa has the details.</strong> Taking you to secure checkout. If nothing happens, <a href="' + url + '">continue to checkout</a>.');
+    setTimeout(() => { location.href = url; }, 900);
+  });
+})();
+</script>
+</body>
+</html>
