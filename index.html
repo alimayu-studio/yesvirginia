@@ -208,6 +208,14 @@ p{margin:0 0 1em}
 .reel__dots i{width:.6em;height:.6em;border-radius:50%;background:rgba(255,243,223,.5)}
 .reel__dots i.is-on{background:var(--gold)}
 
+
+/* animated special embed */
+.watch{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:46px}
+.watch__frame{position:relative;aspect-ratio:16/9;border:8px solid var(--pine);box-shadow:0 0 0 3px var(--gold),6px 8px 0 3px rgba(43,33,27,.16);background:#000}
+.watch__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.watch__copy h3{font-size:clamp(28px,3vw,36px);color:var(--wine);margin-bottom:10px}
+.watch__copy p{color:var(--muted);font-size:17px}
+@media(max-width:860px){.watch{grid-template-columns:1fr}}
 /* the full 1897 editorial */
 .editorial{margin-top:26px;background:var(--paper);border:1px solid var(--line);box-shadow:4px 5px 0 rgba(43,33,27,.08)}
 .editorial summary{cursor:pointer;padding:14px 20px;font-family:var(--caps);font-size:21px;color:var(--wine);list-style:none}
@@ -486,8 +494,9 @@ footer p{margin:6px 0 0;color:#e3d8c6}
       <span class="kicker">A true story</span>
       <h2 id="story-h">The story of Virginia</h2>
       <p>She asked a newspaper one honest question. An editor took it seriously and wrote back. That reply is where “Yes, Virginia!” comes from.</p>
-      <p class="story__more">More to watch:
-        <a class="textlink" href="https://en.wikipedia.org/wiki/Yes,_Virginia_(TV_program)" target="_blank" rel="noopener">The animated TV special, “Yes, Virginia” (2009)</a>
+      <p class="story__more">More to watch on YouTube:
+        <a class="textlink" href="#watch">The animated TV special, “Yes, Virginia” (CBS)</a>
+        <a class="textlink" href="https://www.youtube.com/watch?v=sImVRe2k_MY" target="_blank" rel="noopener">The 1974 animated film, “Yes, Virginia, There Is a Santa Claus”</a>
       </p>
     </div>
     <figure class="stage">
@@ -547,6 +556,17 @@ footer p{margin:6px 0 0;color:#e3d8c6}
       </div>
       <figcaption>An animated storybook of Virginia’s letter and the editor’s answer, in their own words.</figcaption>
     </figure>
+  </div>
+  <div class="wrap watch" id="watch">
+    <div class="watch__frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/ggnnSZaab-o?rel=0" title="Yes, Virginia, the animated TV special: extended preview from CBS" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="watch__copy">
+      <span class="kicker">Watch the animated special</span>
+      <h3>“Yes, Virginia” on CBS</h3>
+      <p>An extended preview of the animated television special that retells Virginia’s story, shared by CBS on YouTube.</p>
+      <p>For the classic version, see the <a class="textlink" href="https://www.youtube.com/watch?v=sImVRe2k_MY" target="_blank" rel="noopener">1974 animated film on YouTube</a>.</p>
+    </div>
   </div>
   <div class="wrap">
     <details class="editorial">
