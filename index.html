@@ -105,7 +105,24 @@ p{margin:0 0 1em}
 .postmark svg{width:100%;height:100%}
 @keyframes land{from{opacity:0;transform:rotate(-30deg) scale(1.7)}to{opacity:.92;transform:rotate(-11deg) scale(1)}}
 
-/* postage-stamp price and deadline badge */
+
+/* countdown: a little tear-off calendar page */
+.countdown{display:inline-flex;align-items:center;gap:18px;padding:12px 22px 12px 12px;background:var(--paper);background-image:var(--grain);border:1px solid #d8c6a2;box-shadow:5px 6px 0 rgba(43,33,27,.16);transform:rotate(-1.2deg);text-align:left}
+.cal{position:relative;flex:none;width:92px;background:#fff;border:1px solid #d8c6a2;box-shadow:0 3px 0 #e9dcc2,0 6px 0 #ddcdae;text-align:center;padding-bottom:6px}
+.cal__rings{position:absolute;left:14px;right:14px;top:-7px;height:12px;background:radial-gradient(circle,#6a5a4f 2.5px,transparent 3px) 0 0/22px 12px repeat-x}
+.cal__top{display:block;background:var(--red);color:#fff;font-family:var(--type);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:7px 0 5px}
+.cal__num{display:block;font-family:var(--display);font-size:52px;line-height:1.05;color:var(--wine);padding-top:4px}
+.countdown__copy{display:flex;flex-direction:column;gap:3px;max-width:300px}
+.countdown__head{font-family:var(--display);font-size:24px;line-height:1.1;color:var(--red)}
+.countdown__line{font-size:15.5px;line-height:1.4;color:#4a3b31}
+.countdown__price{font-family:var(--type);font-size:13px;letter-spacing:.08em;color:var(--sepia);text-transform:uppercase;margin-top:2px}
+.countdown.is-soon .cal__top{background:var(--wine)}
+.mailbag{display:flex;align-items:center;justify-content:center;gap:10px;max-width:860px;margin:0 auto 26px;padding:10px 18px;background:var(--wine);color:#fff3df;font-family:var(--type);font-size:15px;letter-spacing:.04em;text-align:center;box-shadow:4px 4px 0 rgba(43,33,27,.16);position:relative}
+.mailbag::before,.mailbag::after{content:"";position:absolute;top:0;bottom:0;width:14px;background:var(--cream)}
+.mailbag::before{left:-1px;clip-path:polygon(0 0,100% 50%,0 100%)}
+.mailbag::after{right:-1px;clip-path:polygon(100% 0,0 50%,100% 100%)}
+.mailbag b{font-family:var(--display);font-weight:normal;font-size:24px;line-height:1;color:var(--gold)}
+/* postage-stamp badge */
 .postage{display:inline-block;padding:7px;background:radial-gradient(circle at 7px 7px,transparent 4.5px,var(--paper) 5px) -7px -7px/14px 14px;filter:drop-shadow(3px 3px 0 rgba(43,33,27,.22));transform:rotate(-1.5deg)}
 .postage__in{display:flex;align-items:center;gap:14px;background:var(--paper);padding:10px 20px 11px 12px;color:var(--red);outline:1px solid rgba(188,7,4,.35);outline-offset:-5px}
 .postage__in img{width:48px}
@@ -224,7 +241,8 @@ p{margin:0 0 1em}
 .paper__seal{position:absolute;right:-26px;top:-34px;width:104px;height:104px;border-radius:50%;background:var(--paper);border:3px solid var(--red);display:grid;place-items:center;transform:rotate(8deg);box-shadow:3px 4px 0 rgba(43,33,27,.18)}
 .paper__seal img{width:66px}
 .paper__sprig{position:absolute;left:-18px;bottom:-22px;width:96px;height:44px;transform:rotate(-18deg);color:var(--pine)}
-.paper__sample{position:absolute;right:18px;bottom:22px;padding:4px 16px 2px;border:3px double rgba(150,18,34,.75);color:rgba(150,18,34,.78);font-family:var(--caps);font-size:30px;letter-spacing:.14em;text-transform:uppercase;transform:rotate(-14deg);pointer-events:none;mix-blend-mode:multiply}
+.paper__sample{position:absolute;right:18px;bottom:22px;padding:4px 16px 2px;border:3px double rgba(150,18,34,.75);color:rgba(150,18,34,.78);font-family:var(--caps);font-size:30px;line-height:1;letter-spacing:.14em;text-transform:uppercase;text-align:center;transform:rotate(-14deg);pointer-events:none;mix-blend-mode:multiply}
+.paper__sample small{display:block;margin:2px 0 3px;font-family:var(--type);font-size:10.5px;letter-spacing:.06em;text-transform:none}
 .letter > .paper__note{grid-column:2;margin:-6px auto 0;max-width:470px;text-align:center;font-family:var(--type);font-size:13.5px;color:var(--sepia)}
 @media(max-width:860px){.letter > .paper__note{grid-column:1}}
 
@@ -247,9 +265,12 @@ p{margin:0 0 1em}
 .quill{position:absolute;left:-46px;top:-80px;width:120px;transform:rotate(-12deg) scaleX(-1);pointer-events:none;filter:drop-shadow(0 6px 5px rgba(43,33,27,.18));z-index:2}
 .envelope h2{font-size:clamp(42px,5.2vw,62px);color:var(--red);text-align:center;margin-bottom:12px;padding:0 70px}
 .order__intro{text-align:center;color:var(--muted);max-width:33em;margin:0 auto 22px}
-.discreet{display:flex;gap:14px;align-items:flex-start;max-width:36em;margin:0 auto 30px;padding:14px 18px;background:#f4ecda;border:1px dashed var(--sepia);font-size:16px;color:#4a3b31}
-.discreet svg{flex:none;width:34px;height:auto;color:var(--wine);margin-top:2px}
-.discreet b{color:var(--wine)}
+.discreet{position:relative;max-width:560px;margin:0 auto 34px;padding:9px;background:radial-gradient(circle at 9px 9px,transparent 5.5px,var(--paper) 6px) -9px -9px/18px 18px;filter:drop-shadow(4px 5px 0 rgba(43,33,27,.18));transform:rotate(-1.2deg)}
+.discreet__in{position:relative;display:flex;align-items:center;gap:18px;padding:18px 22px;background-color:var(--paper);background-image:var(--grain);outline:2px solid var(--red);outline-offset:-7px;box-shadow:inset 0 0 0 10px var(--paper),inset 0 0 0 12px rgba(46,93,59,.55)}
+.discreet__mark{flex:none;width:96px;height:96px;color:var(--red);transform:rotate(-10deg);opacity:.9;mix-blend-mode:multiply}
+.discreet p{margin:0;font-size:16px;line-height:1.5;color:#4a3b31}
+.discreet b{display:block;font-family:var(--caps);font-weight:normal;font-size:25px;line-height:1.1;color:var(--wine);margin-bottom:4px;letter-spacing:.02em}
+.discreet__holly{position:absolute;right:-22px;top:-20px;width:76px;height:35px;transform:rotate(22deg)}
 .fs{border:0;padding:0;margin:0 0 30px;min-width:0}
 .fs legend{display:block;width:100%;padding:0 0 8px;margin-bottom:16px;border-bottom:2px dashed var(--line);font-family:var(--display);font-size:30px;color:var(--wine);line-height:1.1}
 .fs legend small{display:block;margin-top:4px;font-family:var(--body);font-size:15px;color:var(--muted)}
@@ -340,6 +361,12 @@ footer p{margin:6px 0 0;color:#e3d8c6}
   .envelope__stamp img{width:40px}
   .envelope h2{padding:0 60px 0 0;text-align:left}
   .order__intro{text-align:left}
+  .discreet__in{flex-direction:column;text-align:center;gap:10px}
+  .countdown{gap:12px;padding-right:14px}
+  .cal{width:76px}
+  .cal__num{font-size:42px}
+  .countdown__head{font-size:21px}
+  .mailbag{flex-wrap:wrap;gap:4px 8px;font-size:14px}
   .paper{padding:40px 26px 34px}
   .postage__in{gap:10px;padding-right:14px}
   .postage__big{font-size:23px}
@@ -380,18 +407,17 @@ footer p{margin:6px 0 0;color:#e3d8c6}
   <div class="hero">
     <div class="hero__copy">
       <h1>A letter from Santa. <em>A Christmas to remember.</em></h1>
-      <p class="lede">In 1897, an eight-year-old girl named Virginia wrote to a New York newspaper to ask if Santa Claus was real. The editor wrote back, and his answer became the most famous reply in newspaper history. This Christmas, someone you love can get a letter of their own.</p>
+      <p class="lede">In 1897, an eight-year-old girl named Virginia wrote to a New York newspaper to ask if Santa Claus was real. The editor wrote back, and his answer became one of the most famous replies in newspaper history. This Christmas, someone you love can get a letter of their own.</p>
       <div class="hero__actions">
         <a class="btn" href="#order">Order a letter</a>
         <a class="textlink" href="#story">Watch Virginia’s story</a>
       </div>
-      <div class="postage" aria-live="polite">
-        <div class="postage__in">
-          <img src="assets/santa.webp" alt="" width="48" height="53">
-          <div>
-            <span class="postage__big">$10 a letter · Order by <span data-deadline-label>December 10</span></span>
-            <span class="postage__small" data-days></span>
-          </div>
+      <div class="countdown" aria-live="polite">
+        <div class="cal" aria-hidden="true"><span class="cal__rings"></span><span class="cal__top">Days left</span><span class="cal__num" data-days-num>—</span></div>
+        <div class="countdown__copy">
+          <span class="countdown__head" data-days-head>Santa’s mailbag closes <span data-deadline-label>December 10</span></span>
+          <span class="countdown__line" data-days-line>Order early so every letter has time to travel.</span>
+          <span class="countdown__price">$10 a letter</span>
         </div>
       </div>
     </div>
@@ -402,7 +428,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
           <defs><path id="ring" d="M70 70 m-50 0 a50 50 0 1 1 100 0 a50 50 0 1 1 -100 0"/></defs>
           <circle cx="70" cy="70" r="64" fill="none" stroke="currentColor" stroke-width="3"/>
           <circle cx="70" cy="70" r="38" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <text font-family="Special Elite, monospace" font-size="12.5" letter-spacing="2.2" fill="currentColor"><textPath href="#ring">NORTH POLE · SPECIAL DELIVERY ·</textPath></text>
+          <text font-family="Special Elite, monospace" font-size="12.5" fill="currentColor"><textPath href="#ring" textLength="308" lengthAdjust="spacing">NORTH POLE · SPECIAL DELIVERY ·</textPath></text>
           <text x="70" y="66" text-anchor="middle" font-family="IM Fell English SC, Georgia, serif" font-size="15" fill="currentColor">DEC</text>
           <text x="70" y="84" text-anchor="middle" font-family="IM Fell English SC, Georgia, serif" font-size="17" fill="currentColor">2026</text>
         </svg>
@@ -460,7 +486,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
           </div>
 
           <div class="scene s-letter" data-dur="15000">
-            <div class="sheet"><div class="ink" data-write="Dear Editor—&#10;I am 8 years old. Some of my little friends say there is no Santa Claus. Papa says, “If you see it in The Sun, it’s so.” Please tell me the truth, is there a Santa Claus?&#10;— Virginia O’Hanlon"></div></div>
+            <div class="sheet"><div class="ink" data-write="Dear Editor: I am 8 years old.&#10;Some of my little friends say there is no Santa Claus.&#10;Papa says ‘If you see it in The Sun it’s so.’&#10;Please tell me the truth: is there a Santa Claus?&#10;Virginia O’Hanlon.&#10;115 West Ninety-fifth street."></div></div>
           </div>
 
           <div class="scene s-paper" data-dur="9000">
@@ -469,7 +495,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
               <div class="news__head">Is There a Santa Claus?</div>
               <div class="news__cols">
                 <p>“Virginia, your little friends are wrong. They have been affected by the skepticism of a skeptical age.”</p>
-                <p>“Alas! how dreary would be the world if there were no Santa Claus! It would be as dreary as if there were no Virginias.”</p>
+                <p>“Alas! how dreary would be the world if there were no Santa Claus. It would be as dreary as if there were no Virginias.”</p>
                 <p>“Nobody sees Santa Claus, but that is no sign that there is no Santa Claus. The most real things in the world are those that neither children nor men can see.”</p>
               </div>
             </div>
@@ -484,7 +510,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
 
           <div class="scene s-end" data-dur="0">
             <div>
-              <blockquote>“A thousand years from now, Virginia, nay ten times ten thousand years from now, he will continue to make glad the heart of childhood.”<cite>Francis P. Church, The Sun, 1897</cite></blockquote>
+              <blockquote>“A thousand years from now, Virginia, nay, ten times ten thousand years from now, he will continue to make glad the heart of childhood.”<cite>Francis P. Church, The Sun, 1897</cite></blockquote>
               <a class="btn" href="#order">Send a letter from Santa</a>
             </div>
           </div>
@@ -508,12 +534,14 @@ footer p{margin:6px 0 0;color:#e3d8c6}
     <details class="editorial">
       <summary>Read the full 1897 letter and reply</summary>
       <div class="editorial__body">
-        <p><em>Dear Editor—I am 8 years old. Some of my little friends say there is no Santa Claus. Papa says, “If you see it in The Sun, it’s so.” Please tell me the truth, is there a Santa Claus?</em><br><span class="sig">Virginia O’Hanlon</span></p>
-        <p>Virginia, your little friends are wrong. They have been affected by the skepticism of a skeptical age. They do not believe except they see. They think that nothing can be which is not comprehensible by their little minds. All minds, Virginia, whether they be men’s or children’s, are little. In this great universe of ours, man is a mere insect, an ant, in his intellect as compared with the boundless world about him, as measured by the intelligence capable of grasping the whole of truth and knowledge.</p>
-        <p>Yes, Virginia, there is a Santa Claus. He exists as certainly as love and generosity and devotion exist, and you know that they abound and give to your life its highest beauty and joy. Alas! how dreary would be the world if there were no Santa Claus! It would be as dreary as if there were no Virginias. There would be no childlike faith then, no poetry, no romance to make tolerable this existence. We should have no enjoyment, except in sense and sight. The eternal light with which childhood fills the world would be extinguished.</p>
-        <p>Not believe in Santa Claus! You might as well not believe in fairies. You might get your papa to hire men to watch in all the chimneys on Christmas eve to catch Santa Claus, but even if you did not see Santa Claus coming down, what would that prove? Nobody sees Santa Claus, but that is no sign that there is no Santa Claus. The most real things in the world are those that neither children nor men can see. Did you ever see fairies dancing on the lawn? Of course not, but that’s no proof that they are not there. Nobody can conceive or imagine all the wonders there are unseen and unseeable in the world.</p>
-        <p>You tear apart the baby’s rattle and see what makes the noise inside, but there is a veil covering the unseen world which not the strongest man, nor even the united strength of all the strongest men that ever lived could tear apart. Only faith, poetry, love, romance, can push aside that curtain and view and picture the supernal beauty and glory beyond. Is it all real? Ah, Virginia, in all this world there is nothing else real and abiding.</p>
-        <p>No Santa Claus! Thank God! he lives and lives forever. A thousand years from now, Virginia, nay 10 times 10,000 years from now, he will continue to make glad the heart of childhood.<br><span class="sig">Francis P. Church, The New York Sun, 1897</span></p>
+        <p class="sig">The Sun, New York, Tuesday, September 21, 1897. “Is There a Santa Claus?”</p>
+        <p>We take pleasure in answering at once and thus prominently the communication below, expressing at the same time our great gratification that its faithful author is numbered among the friends of The Sun:</p>
+        <p><em>“Dear Editor: I am 8 years old.<br>“Some of my little friends say there is no Santa Claus.<br>“Papa says ‘If you see it in The Sun it’s so.’<br>“Please tell me the truth: is there a Santa Claus?</em><br><span class="sig">“Virginia O’Hanlon.<br>“115 West Ninety-fifth street.”</span></p>
+        <p>Virginia, your little friends are wrong. They have been affected by the skepticism of a skeptical age. They do not believe except they see. They think that nothing can be which is not comprehensible by their little minds. All minds, Virginia, whether they be men’s or children’s, are little. In this great universe of ours man is a mere insect, an ant, in his intellect, as compared with the boundless world about him, as measured by the intelligence capable of grasping the whole of truth and knowledge.</p>
+        <p>Yes, Virginia, there is a Santa Claus. He exists as certainly as love and generosity and devotion exist, and you know that they abound and give to your life its highest beauty and joy. Alas! how dreary would be the world if there were no Santa Claus. It would be as dreary as if there were no Virginias. There would be no childlike faith then, no poetry, no romance to make tolerable this existence. We should have no enjoyment, except in sense and sight. The eternal light with which childhood fills the world would be extinguished.</p>
+        <p>Not believe in Santa Claus! You might as well not believe in fairies! You might get your papa to hire men to watch in all the chimneys on Christmas Eve to catch Santa Claus, but even if they did not see Santa Claus coming down, what would that prove? Nobody sees Santa Claus, but that is no sign that there is no Santa Claus. The most real things in the world are those that neither children nor men can see. Did you ever see fairies dancing on the lawn? Of course not, but that’s no proof that they are not there. Nobody can conceive or imagine all the wonders there are unseen and unseeable in the world.</p>
+        <p>You may tear apart the baby’s rattle and see what makes the noise inside, but there is a veil covering the unseen world which not the strongest man, nor even the united strength of all the strongest men that ever lived, could tear apart. Only faith, fancy, poetry, love, romance, can push aside that curtain and view and picture the supernal beauty and glory beyond. Is it all real? Ah, Virginia, in all this world there is nothing else real and abiding.</p>
+        <p>No Santa Claus! Thank God! he lives, and he lives forever. A thousand years from now, Virginia, nay, ten times ten thousand years from now, he will continue to make glad the heart of childhood.<br><span class="sig">Written by Francis P. Church for The Sun</span></p>
       </div>
     </details>
   </div>
@@ -562,7 +590,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
       <p>Keep being curious, kind, and wonderfully yourself. Wishing you a very merry Christmas!</p>
       <div class="paper__sign">Santa Claus</div>
       <svg class="paper__sprig" aria-hidden="true"><use href="#sprig"/></svg>
-      <div class="paper__sample" aria-hidden="true">Sample</div>
+      <div class="paper__sample" aria-hidden="true">Sample<small>For illustration only</small></div>
     </div>
     <p class="paper__note">Sample letter, shown for illustrative purposes only. Actual wording, stationery, and design will differ.</p>
   </div>
@@ -593,6 +621,7 @@ footer p{margin:6px 0 0;color:#e3d8c6}
 <!-- ============ ORDER FORM ============ -->
 <section class="sec sec--paper order" id="order" aria-labelledby="order-h">
   <div class="holly" aria-hidden="true"><svg><use href="#sprig"/></svg></div>
+  <p class="mailbag" aria-live="polite"><span>Santa’s mailbag closes in</span><b data-days-num>—</b><span data-days-unit>days</span><span aria-hidden="true">·</span><span>last day <span data-deadline-label>December 10</span></span></p>
   <div class="envelope">
     <img class="quill" src="assets/quill.webp" alt="" width="120" height="140" loading="lazy">
     <div class="envelope__paper">
@@ -601,8 +630,18 @@ footer p{margin:6px 0 0;color:#e3d8c6}
       <p class="order__intro">One letter per order. Fill this in, then finish with a secure $10 checkout.</p>
 
       <div class="discreet">
-        <svg viewBox="0 0 40 30" aria-hidden="true"><rect x="1.5" y="1.5" width="37" height="27" rx="2" fill="none" stroke="currentColor" stroke-width="3"/><path d="M2 3l18 13L38 3" fill="none" stroke="currentColor" stroke-width="3"/></svg>
-        <span><b>Discreet delivery.</b> Santa’s letter is sealed inside a plain outer envelope addressed to you, so the surprise stays a surprise until you hand it over.</span>
+        <div class="discreet__in">
+          <svg class="discreet__mark" viewBox="0 0 120 120" aria-hidden="true">
+            <defs><path id="dring" d="M60 60 m-43 0 a43 43 0 1 1 86 0 a43 43 0 1 1 -86 0"/></defs>
+            <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="3"/>
+            <circle cx="60" cy="60" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <text font-family="Special Elite, monospace" font-size="12.5" fill="currentColor"><textPath href="#dring" textLength="264" lengthAdjust="spacing">DISCREET DELIVERY · NORTH POLE ·</textPath></text>
+            <rect x="43" y="49" width="34" height="23" rx="2" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M44 51l16 12 16-12" fill="none" stroke="currentColor" stroke-width="3"/>
+          </svg>
+          <p><b>Discreet delivery</b>Santa’s letter is sealed inside a plain outer envelope addressed to you, so the surprise stays a surprise until you hand it over.</p>
+          <svg class="discreet__holly" aria-hidden="true"><use href="#sprig"/></svg>
+        </div>
       </div>
 
       <div class="closed" id="closed" hidden>
@@ -754,13 +793,34 @@ const JF = {
   const deadline = new Date(CONFIG.DEADLINE);
   const isClosed = Date.now() > deadline.getTime();
   document.querySelectorAll('[data-deadline-label]').forEach(el => el.textContent = CONFIG.DEADLINE_LABEL);
-  const daysEl = $('[data-days]');
-  if (daysEl){
-    if (isClosed) daysEl.textContent = 'Orders are closed';
-    else { const d = Math.ceil((deadline.getTime() - Date.now()) / 86400000); daysEl.textContent = d <= 1 ? 'Last day to order' : d + ' days left to order'; }
+  function daysLeft(){
+    // whole calendar days until the deadline, counted in Eastern time
+    const fmt = new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'});
+    const today = new Date(fmt.format(new Date()) + 'T00:00:00Z');
+    const last = new Date(fmt.format(deadline) + 'T00:00:00Z');
+    return Math.round((last - today) / 86400000) + 1;   // the deadline day itself counts
   }
+  function paintCountdown(){
+    const closed = Date.now() > deadline.getTime();
+    const d = closed ? 0 : daysLeft();
+    document.querySelectorAll('[data-days-num]').forEach(el => el.textContent = d);
+    const unit = document.querySelector('[data-days-unit]'); if (unit) unit.textContent = d === 1 ? 'day' : 'days';
+    const line = document.querySelector('[data-days-line]'), head = document.querySelector('[data-days-head]');
+    const box = document.querySelector('.countdown'), bag = document.querySelector('.mailbag');
+    if (closed){
+      head.textContent = 'Santa’s mailbag is closed'; line.textContent = 'Thank you for a wonderful season. See you next Christmas.';
+      if (bag) bag.hidden = true; return;
+    }
+    if (d === 1){ line.textContent = 'Today is the last day to order. Letters ordered today still go out on time.'; }
+    else if (d <= 7){ line.textContent = 'Only ' + d + ' days left. Every letter needs a little time to travel from the North Pole.'; }
+    else { line.textContent = d + ' days left to order, so every letter has time to travel before Christmas.'; }
+    box.classList.toggle('is-soon', d <= 7);
+  }
+  paintCountdown();
+  setInterval(paintCountdown, 60 * 1000);   // keeps the count right if the page stays open past midnight
   const form = $('#orderForm'), msg = $('#formMessage'), btn = $('#submitBtn');
   if (isClosed){ form.hidden = true; $('#closed').hidden = false; }
+  setInterval(() => { if (Date.now() > deadline.getTime() && !form.hidden){ form.hidden = true; $('#closed').hidden = false; } }, 60 * 1000);
 
   /* ---- animated storybook ---- */
   (function(){
